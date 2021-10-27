@@ -16,7 +16,7 @@ Collection of R scripts and associated data used for the processing and analysis
 
 ### Field measurements- Local adaptation
 
-We calculated the color (chromatic) and brightness (achromatic) contrasts of each toad against the three background substrates via visual modelling incorporating the irradiance measurements of the respective locality using R scripts (see below). We also calculated the color and brightness contrasts between the ventral yellow and black patches (inner contrast) and the contrasts between the ventral patches and the three substrates. Statistical analyses of the effects of the source locality on the color (ΔS) and brightness contrast (ΔL) of the dorsal and ventral coloration of the toads were conducted as detailed in script *Substrate_contrasts_Field.R*.
+We calculated the color (chromatic) and brightness (achromatic) contrasts of each toad against the three background substrates via visual modelling incorporating the irradiance measurements of the respective locality using R scripts (see below). Statistical analyses of the effects of the source locality on the color (ΔS) and brightness contrast (ΔL) of the dorsal and ventral coloration of the toads were conducted as detailed in script *Substrate_contrasts_Field.R*.
 
 ### Experiment - Coloration plasticity
 
