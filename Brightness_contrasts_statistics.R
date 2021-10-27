@@ -2,17 +2,18 @@ library(multcomp)
 library(ggplot2)
 
 # Analisis of the brightness contrasts
-data<-read.csv("./data/contrast_all-data.EDIT.csv")
+data<-read.csv("./data/contrast_all-data.starling.csv")
 data$treatment <- factor(data$treatment, levels = c("natural","light","dark"))
 data$factor_day<-data$day
 data$factor_day[data$factor_day<5]<- 1
 data$factor_day<-as.factor(data$factor_day)
 data.all<-data
 
+
 # Comparing the contrast against a given substrate in habituation AND experiment phases
-natural<-data.all[data.all$patch1=="natural" & data.all$treatment=="natural",]
-light<-data.all[data.all$patch1=="light" & data.all$treatment=="light",]
-dark<-data.all[data.all$patch1=="dark"& data.all$treatment=="dark",]
+natural<-data.all[data.all$patch1=="substrate_natural" & data.all$treatment=="natural",]
+light<-data.all[data.all$patch1=="substrate_light" & data.all$treatment=="light",]
+dark<-data.all[data.all$patch1=="substrate_dark"& data.all$treatment=="dark",]
 
 library(DescTools)
 natural.mod <- aov(dL ~ factor_day, data = natural)
@@ -77,18 +78,3 @@ p3<-ggplot(dark, aes(x = factor_day, y = dL, group = interaction(factor_day,grou
 pdf("./plots/boxplots_days_vs_average-reference-substrates.pdf")
 multiplot(p1, p2, p3, cols=1)
 dev.off()
-
-# Comparing the contrast against a given substrate in habituation AND experiment phases
-natural<-data.all[data.all$patch1=="natural" & data.all$treatment=="natural",]
-light<-data.all[data.all$patch1=="light" & data.all$treatment=="light",]
-dark<-data.all[data.all$patch1=="dark"& data.all$treatment=="dark",]
-
-
-new.data<-rbind(natural,light,dark)
-pdf("./plots/brightness_contrasts_Experiment.pdf")
-ggplot(new.data, aes(x=day, y=dL, group = interaction(day,treatment), fill = treatment)) + annotate("rect", xmin = 0, xmax = 5, ymin = 0, ymax = 30, alpha = .5) +
-  geom_boxplot(outlier.colour = NA) + theme_classic(base_size = 12) + scale_fill_manual(values = c("#000000","#CCCCCC", "#666666")) +
-  stat_summary(fun.y = median, geom = 'line',  aes(group = treatment, colour = treatment), position = position_dodge(width = 1)) + scale_colour_manual(values = c("#000000","#CCCCCC", "#666666")) #this has to be added
-dev.off()
-
-
