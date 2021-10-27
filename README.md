@@ -11,7 +11,7 @@
 
 
 
-Collection of R scripts and associated data used for the processing and analysis of spectral meassurements applied in the manuscript "Evidence for local adaptation and coloration plasticity in dorsal crypsis of a deimatic species, the yellow-bellied toad (*Bombina variegata*)". Original meassurements and intermediate results and plots are provided in the (./data) and (./plots) folders. Please consult the manuscript for additional details.
+Collection of R scripts and associated data used for the processing and analysis of spectral meassurements applied in the manuscript "Evidence for coloration plasticity in the yellow-bellied toad, *Bombina variegata*". Original meassurements and intermediate results and plots are provided in the (./data) and (./plots) folders. Please consult the manuscript for additional details.
 
 
 ### Field measurements- Local adaptation
